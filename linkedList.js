@@ -5,4 +5,31 @@
  */
 function linkedListGenerator(){
 
+  var newLinkedList = {
+    getHead : function(){
+
+    },
+
+    getTail : function(){
+
+    },
+
+    add : function(){
+
+    },
+    remove : function(){
+
+    },
+
+    get : function(){
+
+    },
+
+    insert : function(){
+
+    }
+  };
+
+  return newLinkedList;
+
 }
