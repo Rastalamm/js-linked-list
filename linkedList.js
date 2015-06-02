@@ -41,7 +41,7 @@ function linkedListGenerator(){
         while (current !== null && count <= num){
 
           if(count === num){
-              return current;
+            return current;
           }else{
             current = current.next;
             count++;
@@ -50,10 +50,50 @@ function linkedListGenerator(){
        return false;
     },
 
-    remove : function(){
+    remove : function(num){
+      var count = 0;
+      var current  = head;
+      var previous;
+      var nextNode;
 
 
+      if(num === 0 ){
+            head = head.next;
+            return head;
+      }else{
 
+        while (current !== null && count <= num){
+
+            if(count === num){
+              console.log("curretn",nextNode);
+
+              if(current.next === null){
+
+                console.log('current', nextNode);
+                  previous.next = null;
+                  tail = previous;
+                  console.log('removed', current);
+                  return current;
+
+
+              }
+              else{
+                previous.next = nextNode;
+                return previous;
+              }
+            }
+            else{
+              previous = current; //this is what gives previous
+              current = current.next;
+              nextNode = current.next;// this is what give next
+              count++;
+            }
+
+          }
+        return false;
+        }
+
+        console.log('nothign fits');
 
     },
 
