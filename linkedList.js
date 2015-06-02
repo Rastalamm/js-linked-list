@@ -8,7 +8,6 @@ function linkedListGenerator(){
   var head = null;
   var tail = null;
 
-
   return {
     getHead : function(){
       return head;
@@ -29,13 +28,18 @@ function linkedListGenerator(){
         tail = head;
         return head;
       }else{
+        tail.next = newNode;
         tail = newNode;
         return head;
       }
-
     },
 
-    get : function(){
+    get : function(num){
+      var count = 1;
+      //while(head.next !== null){
+    //    count++;
+    //  }
+      return count;
 
     },
 
@@ -46,7 +50,5 @@ function linkedListGenerator(){
     insert : function(){
 
     }
+      }
   };
-
-
-}
