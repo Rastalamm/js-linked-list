@@ -35,12 +35,19 @@ function linkedListGenerator(){
     },
 
     get : function(num){
-      var count = 1;
-      //while(head.next !== null){
-    //    count++;
-    //  }
-      return count;
+      var count = 0;
+      var current  = head;
 
+        while (current !== null && count <= num){
+
+          if(count === num){
+              return current;
+          }else{
+            current = current.next;
+            count++;
+          }
+        }
+       return false;
     },
 
     remove : function(){
@@ -50,5 +57,5 @@ function linkedListGenerator(){
     insert : function(){
 
     }
-      }
   };
+}
