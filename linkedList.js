@@ -87,8 +87,30 @@ function linkedListGenerator(){
         }
     },
 
-    insert : function(){
+    insert : function(value, index){
+      var count = 0;
+      var current  = head;
+      var previous;
+      var nextNode;
 
+        while (current !== null && count <= index){
+
+          if(count === index){
+            current = previous.next;
+            nextNode = current.next;
+
+
+
+            return current;
+          }else{
+
+            previous = current; //this is what gives previous
+            current = current.next;
+            nextNode = current.next;// this is what give next
+            count++;
+          }
+        }
+       return false;
     }
   };
 }
