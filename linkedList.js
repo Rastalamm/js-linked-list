@@ -62,7 +62,7 @@ function linkedListGenerator(){
       }else{
 
         while (current !== null && count <= num){
-          console.log('enters again?', count);
+
           if(count < num){
             if(nextNode === null){
               return false;
@@ -92,16 +92,20 @@ function linkedListGenerator(){
       var current  = head;
       var previous;
       var nextNode;
+      var newNode = {
+          value : value,
+          next : null
+      };
 
         while (current !== null && count <= index){
 
           if(count === index){
-            current = previous.next;
-            nextNode = current.next;
 
-
-
-            return current;
+            newNode.next = current;
+            previous.next = newNode;
+            //newNode.next = current;
+            console.log('here is where is ends up');
+            return newNode;
           }else{
 
             previous = current; //this is what gives previous
