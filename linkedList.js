@@ -65,11 +65,11 @@ function linkedListGenerator(){
         while (current !== null && count <= num){
 
             if(count === num){
-              console.log("curretn",nextNode);
+              console.log("nextNode here works",nextNode);
 
               if(current.next === null){
 
-                console.log('current', nextNode);
+                console.log('nextNode here', nextNode);
                   previous.next = null;
                   tail = previous;
                   console.log('removed', current);
