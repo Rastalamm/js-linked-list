@@ -97,6 +97,11 @@ function linkedListGenerator(){
           next : null
       };
 
+      if(num === 0 ){
+            head = head.next;
+            return head;
+      }else{
+
         while (current !== null && count <= index){
 
           if(count === index){
@@ -114,7 +119,9 @@ function linkedListGenerator(){
             count++;
           }
         }
+      }
        return false;
     }
+
   };
 }
