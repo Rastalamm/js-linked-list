@@ -52,6 +52,9 @@ function linkedListGenerator(){
 
     remove : function(){
 
+
+
+
     },
 
     insert : function(){
