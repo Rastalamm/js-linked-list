@@ -326,8 +326,8 @@ describe('Linked List Generator', function() {
       // ];
         // urlList has two items, it's max index value is 1
         // inserting to index `2` should return false
-        expect(urlList.insert('boingboing.net', 2)).to.be.false;
-        expect(urlList.gethead().value).to.be.equal('news.ycombinator.com');
+        urlList.insert('boingboing.net', 2);
+        expect(urlList.getHead().value).to.be.equal('news.ycombinator.com');
         expect(urlList.get(0).value).to.be.equal('news.ycombinator.com');
         expect(urlList.get(1).value).to.be.equal('icann.org');
         expect(urlList.getTail().value).to.be.equal('boingboing.net');
@@ -340,7 +340,7 @@ describe('Linked List Generator', function() {
         expect(bookList.getTail().value).to.equal('Snow Crash');
 
         // insert into index `1`
-        expect(bookList.insert('The Stranger', 1)).to.be.false;
+        bookList.insert('The Stranger', 1);
         expect(bookList.getHead().value).to.be.equal('Neuromancer');
         expect(bookList.get(0).value).to.be.equal('Neuromancer');
         expect(bookList.get(1).value).to.be.equal('The Stranger');

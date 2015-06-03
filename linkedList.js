@@ -8,16 +8,7 @@ function linkedListGenerator(){
   var head = null;
   var tail = null;
 
-  return {
-    getHead : function(){
-      return head;
-    },
-
-    getTail : function(){
-      return tail;
-    },
-
-    add : function(data){
+function add(data){
       var newNode = {
         value : data,
         next : null
@@ -32,7 +23,18 @@ function linkedListGenerator(){
         tail = newNode;
         return head;
       }
+    }
+
+  return {
+    getHead : function(){
+      return head;
     },
+
+    getTail : function(){
+      return tail;
+    },
+
+    add : add,
 
     get : function(num){
       var count = 0;
@@ -96,9 +98,10 @@ function linkedListGenerator(){
           value : value,
           next : null
       };
-
-      if(num === 0 ){
-            head = head.next;
+console.log(value, index);
+      if(index === 0 ){
+            newNode.next = head;
+            head = newNode;
             return head;
       }else{
 
@@ -108,14 +111,18 @@ function linkedListGenerator(){
 
             newNode.next = current;
             previous.next = newNode;
-            //newNode.next = current;
-            console.log('here is where is ends up');
-            return newNode;
+
+            console.log('here is where is ends up', count);
+            return head;
           }else{
 
             previous = current; //this is what gives previous
             current = current.next;
-            nextNode = current.next;// this is what give next
+            if(current !== null){
+                nextNode = current.next;// this is what give next
+            }else{
+                add(value);
+            }
             count++;
           }
         }
