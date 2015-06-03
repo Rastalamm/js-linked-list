@@ -8,40 +8,35 @@ function linkedListGenerator(){
   var head = null;
   var tail = null;
 
-function add(data){
-      var newNode = {
-        value : data,
-        next : null
-      };
+  function _getHead(){
+    return head;
+  }
 
-      if(head === null){
-        head = newNode;
-        tail = head;
-        return head;
-      }else{
-        tail.next = newNode;
-        tail = newNode;
-        return head;
+  function _getTail(){
+    return tail;
+  }
+
+  function _add(data){
+        var newNode = {
+          value : data,
+          next : null
+        };
+
+        if(head === null){
+          head = newNode;
+          tail = head;
+          return head;
+        }else{
+          tail.next = newNode;
+          tail = newNode;
+          return head;
+        }
       }
-    }
 
-  return {
-    getHead : function(){
-      return head;
-    },
-
-    getTail : function(){
-      return tail;
-    },
-
-    add : add,
-
-    get : function(num){
-      var count = 0;
+  function _get(num){
+    var count = 0;
       var current  = head;
-
         while (current !== null && count <= num){
-
           if(count === num){
             return current;
           }else{
@@ -49,86 +44,84 @@ function add(data){
             count++;
           }
         }
-       return false;
-    },
+      return false;
+  }
 
-    remove : function(num){
-      var count = 0;
-      var current  = head;
-      var previous;
-      var nextNode;
+  function _remove(num){
+    var count = 0;
+    var current  = head;
+    var previous;
+    var nextNode;
 
-      if(num === 0 ){
-            head = head.next;
-            return head;
-      }else{
-
-        while (current !== null && count <= num){
-
-          if(count < num){
-            if(nextNode === null){
-              return false;
-              }
-            previous = current; //this is what gives previous
-            current = current.next;
-            nextNode = current.next;// this is what give next
-            count++;
+    if(num === 0 ){
+          head = head.next;
+          return head;
+    }else{
+      while (current !== null && count <= num){
+        if(count < num){
+          if(nextNode === null){
+            return false;
+          }
+          previous = current; //this is what gives previous
+          current = current.next;
+          nextNode = current.next;// this is what give next
+          count++;
+        }else{
+          if(current.next === null){
+            previous.next = null;
+            tail = previous;
+            return false;
           }else{
-            if(current.next === null){
-              previous.next = null;
-              tail = previous;
-              return false;
-              }
-              else{
-                previous.next = nextNode;
-                return previous.current;
-              }
+            previous.next = nextNode;
+            return previous.current;
           }
         }
-        return false;
-        }
-    },
+      }
+    return false;
+    }
+  }
 
-    insert : function(value, index){
+  function _insert(value, index){
       var count = 0;
       var current  = head;
       var previous;
       var nextNode;
       var newNode = {
-          value : value,
-          next : null
+        value : value,
+        next : null
       };
-console.log(value, index);
+
       if(index === 0 ){
-            newNode.next = head;
-            head = newNode;
-            return head;
+        newNode.next = head;
+        head = newNode;
+        return head;
       }else{
-
         while (current !== null && count <= index){
-
           if(count === index){
-
             newNode.next = current;
             previous.next = newNode;
-
-            console.log('here is where is ends up', count);
             return head;
           }else{
-
             previous = current; //this is what gives previous
             current = current.next;
-            if(current !== null){
+              if(current !== null){
                 nextNode = current.next;// this is what give next
-            }else{
-                add(value);
-            }
+              }else{
+                _add(value);
+              }
             count++;
           }
         }
       }
-       return false;
+    return false;
     }
 
-  };
+  return {
+    getHead : _getHead,
+    getTail : _getTail,
+    add : _add,
+    get : _get,
+    remove : _remove,
+    insert : _insert
+  }
 }
